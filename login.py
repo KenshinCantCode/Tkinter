@@ -7,9 +7,23 @@ def validate_login():
     password = password_entry.get()
     if username == 'admin' and password == 'kenshingwapo':
         messagebox.showinfo("Login Successfully", "Welcome, Pogi")
+        root.destroy()
+        open_dashboard()
     else:
         messagebox.showerror("Login Failed", "Invalid Username Or Password!")
         root.destroy()
+
+def open_dashboard():
+    dashboard = tk.Tk()
+    dashboard.title("Dashboard")
+    dashboard.geometry("300x200")
+    dashboard.resizable(False, False)
+    welcome_label = tk.Label(dashboard, text="Yes")
+    welcome_label.pack(pady=50)
+    dashboard.mainloop()
+    button = tk.Button(dashboard, text="Click Me")
+    button.pack()
+    
 
 root = tk.Tk()
 root.title("Login Ah")
